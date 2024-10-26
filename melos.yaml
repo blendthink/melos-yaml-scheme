@@ -34,3 +34,28 @@ scripts:
     exec: echo 'Hello $(dirname $PWD)'
     packageFilters:
       flutter: true
+
+# Error Examples
+#  steps:exec:
+#    steps:
+#      - echo 'error'
+#    exec: echo 'error'
+#
+#  steps:run:
+#    steps:
+#      - echo 'error'
+#    run: echo 'error'
+#    exec:
+#      concurrency: 1
+#
+#  steps:env:
+#    steps:
+#      - echo 'error'
+#    env:
+#      GREETING: 'Hey'
+#
+#  steps:packageFilters:
+#    steps:
+#      - echo 'error'
+#    packageFilters:
+#      flutter: true
