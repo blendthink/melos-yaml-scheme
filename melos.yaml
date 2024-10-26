@@ -1,0 +1,36 @@
+name: Melos
+repository: https://github.com/blendthink/melos-yaml-scheme
+packages:
+  - packages/*
+
+scripts:
+  hello: echo 'Hello World'
+
+  hello_complex:
+    name: hey
+    description: Greet the world
+    run: echo '$GREETING World'
+    env:
+      GREETING: 'Hey'
+
+  prepare: melos bootstrap && melos run build
+
+  pre-commit:
+    description: pre-commit git hook script
+    steps:
+      - echo 'hello world'
+      - format --output none --set-exit-if-changed
+      - analyze --fatal-infos
+
+  hello_exec:
+    exec: echo 'Hello $(dirname $PWD)'
+
+  hello_exec_options:
+    run: echo 'Hello $(dirname $PWD)'
+    exec:
+      concurrency: 1
+
+  hello_flutter:
+    exec: echo 'Hello $(dirname $PWD)'
+    packageFilters:
+      flutter: true
